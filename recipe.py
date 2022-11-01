@@ -1,3 +1,8 @@
+import mysql.connector
+
+mydb= mysql.connector.connect(host = 'localhost' , user = 'root' , password = '' , database = 'recipedb')
+mycursor = mydb.cursor() 
+
 while True:
     print("select an option from menu")
     print("1 add recipe")
@@ -10,6 +15,17 @@ while True:
     choice = int(input("Enter an option: "))
     if(choice==1):
         print("recipe enter selected")
+
+        name = input("enter the name")
+        discription = input("enter the discription")
+        ingredients = input("enter the ingrideinets")
+        price = int(input("enter the price"))
+        sql = 'INSERT INTO `recipes`(`name`, `discription`, `ingredients`, `price`) VALUES (%s,%s,%s,%s)'
+        data = (name,discription,ingredients,price)
+        mycursor.execute(sql , data)
+        mydb.commit()
+        print("value inserted succesfully")
+
     elif(choice==2):
         print("view recipe selected")
     elif(choice==3):
