@@ -60,5 +60,11 @@ while True:
 
     elif(choice==5):
         print("delete recipe selected")
+        name = input("enter the name: ")
+        sql = "DELETE FROM `recipes` WHERE `name` ='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("data deleted successfully")
+
     elif(choice==6):
         break
