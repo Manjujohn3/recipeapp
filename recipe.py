@@ -75,5 +75,13 @@ while True:
         result = mycursor.fetchall()
         print(result)
 
+    elif(choice==7):
+         print("starting letter")
+         letter = input("enter the first letter: ")
+         sql = "SELECT `id`, `name`, `discription`, `ingredients`, `price` FROM `recipes` WHERE `name` LIKE '%"+letter+"%'"
+         mycursor.execute(sql)
+         result = mycursor.fetchall()
+         print(result)
+
     elif(choice==8):
         break
