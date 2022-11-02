@@ -10,7 +10,9 @@ while True:
     print("3 search a recipe")
     print("4 update the recipe")
     print("5 delete a recipe")
-    print("6 exit")
+    print("6 total price")
+    print("7 recipe starting letter")
+    print("8 exit")
 
     choice = int(input("Enter an option: "))
     if(choice==1):
@@ -67,4 +69,11 @@ while True:
         print("data deleted successfully")
 
     elif(choice==6):
+        print("total price")
+        sql = "SELECT sum(price) FROM `recipes`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
+
+    elif(choice==8):
         break
