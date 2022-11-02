@@ -48,6 +48,16 @@ while True:
 
     elif(choice==4):
         print("update recipe selected")
+        name = input("enter the name")
+        discription = input("enter the discription to be updated")
+        ingredients = input("enter the ingrideinets to be updated")
+        price = (input("enter the price to be updated"))
+        sql = "UPDATE `recipes` SET `discription`='"+discription+"',`ingredients`='"+ingredients+"',`price`='"+price+"' WHERE `name`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("updated succusfully")
+
+
     elif(choice==5):
         print("delete recipe selected")
     elif(choice==6):
